@@ -4,6 +4,8 @@ import { ThemeProvider } from "../components/theme-provider.jsx";
 import { Toaster } from "sonner";
 import FloatingShapes from "@/components/floating-shapes";
 import Header from "@/components/Header";
+import { ConvexClientProvider } from "./ConvexClientProvider.jsx"
+import { ClerkProvider } from "@clerk/nextjs";
 const inter = Inter({ subsets: ["latin"] });
 
 const geistSans = Geist({
@@ -32,12 +34,20 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <main className="bg-slate-900 min-h-screen text-white overflow-x-hidden">
-            <FloatingShapes />
-            <Toaster richColors />
-            {children}
-          </main>
+          <ClerkProvider appearance={{
+            theme: 'shadesOfPurple',
+          }}>
+            <ConvexClientProvider>
+
+              <Header />
+              <main className="bg-slate-900 min-h-screen text-white overflow-x-hidden">
+                <FloatingShapes />
+                <Toaster richColors />
+                {children}
+              </main>
+
+            </ConvexClientProvider>
+          </ClerkProvider>
         </ThemeProvider>
       </body>
 

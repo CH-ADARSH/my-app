@@ -6,6 +6,7 @@ import FloatingShapes from "@/components/floating-shapes";
 import Header from "@/components/Header";
 import { ConvexClientProvider } from "./ConvexClientProvider.jsx"
 import { ClerkProvider } from "@clerk/nextjs";
+import { shadesOfPurple } from '@clerk/themes';
 const inter = Inter({ subsets: ["latin"] });
 
 const geistSans = Geist({
@@ -35,7 +36,7 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <ClerkProvider appearance={{
-            theme: 'shadesOfPurple',
+            baseTheme: shadesOfPurple,
           }}>
             <ConvexClientProvider>
 

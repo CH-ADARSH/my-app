@@ -14,8 +14,7 @@ export default defineSchema({
 
         createdAt: v.number(),
         lastActiveAt: v.number(),
-    })
-        .index("by_token", ["tokenIdentifier"])
+    }).index("by_token", ["tokenIdentifier"])
         .index("by_email", ["email"])
         .searchIndex("search_name", { searchField: "name" })
         .searchIndex("search_email", { searchField: "email" }),
